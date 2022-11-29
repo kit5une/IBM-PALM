@@ -1,4 +1,4 @@
-#IBM-PALM
+# IBM-PALM
 
 Set of extensions for vscode, to improve the display of the IBM assembler and Christian version focused on the core of the IBM 5100, 5110, 5120 series.
 
