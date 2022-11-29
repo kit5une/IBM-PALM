@@ -1,0 +1,25 @@
+{
+    "name": "casm",
+    "displayName": "PALM",
+    "description": "Cristian PALM Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "casm",
+            "aliases": ["Cristian PALM Language", "casm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "casm",
+            "scopeName": "source.casm",
+            "path": "./syntaxes/casm.tmLanguage.json"
+        }]
+    }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "IBM PALM Language",
+  "scopeName": "source.iasm",
+  "patterns": [
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#library"
+    }
+  ],
+  "repository": {
+    "strings": {
+      "name": "string.quoted.double.pasm",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.pasm",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.pasm",
+          "match": ";.*$"
+        }
+      ]
+    },
+    "library": {
+      "patterns": [
+        {
+          "name": "keyword.control.pasm",
+          "match": "\\b(?i:include)\\b"
+        },
+        {
+          "name": "string.quoted.pasm",
+          "match": "'.*'"
+        },
+        {
+          "name": "keyword.other.opcode.pasm",
+          "match": "\\b(?i:nop|halt|add|addi|adds1|adds2|and|clri|ctl|emit|geta|getb|getr|getrb|htl|jall|jallm|jeq|jham|jhe|jhi|jhl|jhsnm|jle|jlo|jno|jnom|jsb|jsm|jsn|jsnm|ldbi|ldhd|ldhi|lth|move|mvm1|mvm2|mvp1|mvp2|orb|putb|seti|shftr|stbi|sthd|sthi|sub|subi|xor|ror|ror3|swap|stat|dw|db)\\b"
+        },
+        {
+          "name": "string.other.pasm",
+          "match": "(?i:call|ret|jmp|bra)"
+        },
+        {
+          "name": "keyword.control.pasm",
+          "match": " (?i:r1[0-5]l[0-9]|r[0-9]l[0-9])"
+        },
+        {
+          "name": "support.type.register.pasm",
+          "match": " (?i:r1[0-5]|r[0-9])"
+        },
+        {
+          "match": "(\\((.*?)\\))",
+          "captures": {
+            "1": { "name": "invalid.other.pasm" },
+            "2": { "name": "support.type.register.pasm" }
+          }
+        },
+        {
+          "match": "((?i:org|cpu|end|arch|equ))\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.pasm"
+            }
+          }
+        },
+        {
+          "name": "keyword.control.pasm",
+          "match": "\\+|-|~|'",
+          "captures": {
+            "1": {
+              "name": "keyword.control.pasm"
+            }
+          }
+        },
+        {
+          "match": "^([0-9a-fA-F]{4}).*?([0-9a-fA-F]{4})",
+          "captures": {
+            "1": { "name": "entity.name.function.pasm" },
+            "2": { "name": "variable.addrOpc.pasm" }
+          }
+        },
+        {
+          "match": "^([a-zA-Z][-\\w]+)(:)?",
+          "captures": {
+            "1": { "name": "entity.name.function.pasm" },
+            "2": { "name": "keyword.other.pasm" }
+          }
+        },
+        {
+          "name": "entity.name.function.pasm",
+          "match": "\\b((([a-zA-Z_][a-zA-Z_0-9]*)?.)?[a-zA-Z_][a-zA-Z_0-9]*[:]{0,2})\\b"
+        },
+        {
+          "name": "constant.numeric.hex.pasm",
+          "match": "(#\\$|\\$|#)[0-9a-fA-F]+\\b"
+        }
+      ]
+    }
+  }
+}

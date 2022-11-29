@@ -1,0 +1,25 @@
+{
+    "name": "iasm",
+    "displayName": "PALM",
+    "description": "IBM PALM Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "iasm",
+            "aliases": ["IBM PALM Language", "iasm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "iasm",
+            "scopeName": "source.iasm",
+            "path": "./syntaxes/iasm.tmLanguage.json"
+        }]
+    }
+}
